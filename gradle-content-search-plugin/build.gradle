@@ -1,0 +1,15 @@
+apply plugin: 'groovy'
+
+group "org.javaone.buildfaceoff"
+version "1.0"
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+
+    testCompile 'junit:junit:4.12'
+}
