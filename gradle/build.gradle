@@ -1,1 +1,44 @@
+buildscript {
+    dependencies {
+        classpath 'org.javaone.buildfaceoff:gradle-content-search-plugin:1.0'
+    }
+}
+
+plugins {
+    id 'com.gradle.build-scan' version '1.0'
+    id "io.spring.dependency-management" version "0.6.0.RELEASE"
+}
+
+
+buildScan {
+    licenseAgreementUrl = 'https://gradle.com/terms-of-service'
+    licenseAgree = 'yes'
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.javaone.buildfaceoff.gradle-content-search-plugin'
+
+    repositories {
+        maven {
+            url 'https://jbaruch.jfrog.io/jbaruch/build-faceoff/'
+        }
+    }
+
+    dependencies {
+        testCompile 'junit:junit:4.12'
+    }
+
+
+    contentSearch {
+        stringsToSearch = ['bla', 'foo', 'bar']
+        fail = false
+    }
+
+    compileJava.dependsOn searchContent
+}
+
+project(':war') {
+    apply plugin: 'war'
+}
 
