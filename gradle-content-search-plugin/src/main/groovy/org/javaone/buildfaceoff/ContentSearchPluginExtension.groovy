@@ -6,6 +6,6 @@ package org.javaone.buildfaceoff
  */
 class ContentSearchPluginExtension {
 
-    String[] stringsToSearch
+    String[] stringsToFind
     boolean fail
 }
