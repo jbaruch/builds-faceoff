@@ -31,3 +31,5 @@ subprojects {
 project(':war') {
     apply plugin: 'war'
 }
+
+assert (System.properties['os.name'].toLowerCase().contains('windows')) : "Must run on Windows."
