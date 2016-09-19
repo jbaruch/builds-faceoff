@@ -20,9 +20,14 @@ subprojects {
     dependencies {
         testCompile 'junit:junit:4.12'
     }
+
+    configurations.all {
+        resolutionStrategy {
+            force 'org.javaone.buildfaceoff:c:1.0'
+        }
+    }
 }
 
 project(':war') {
     apply plugin: 'war'
 }
-
